@@ -1,29 +1,12 @@
-import Ways from "./services"
-import { useEffect } from "react";
-import { createContext } from "react"
-import { useState } from "react";
+import Filtro from "./components/Filtro";
 
-export const AuthContext = createContext(null);
+function App() {
 
-const App = () => {
-
-  const [isLoggeg, setIsLoggeg] = useState(false);
-
-  function checkLogin(){
-    setIsLoggeg(JSON.parse(sessionStorage.getItem('isLoggeg')) || false);
-  }
-
-  useEffect(() => {
-    checkLogin();
-  }, [])
-
-  return (
-    <>
-      <AuthContext.Provider value={{isLoggeg, setIsLoggeg}}>
-        <Ways />
-      </AuthContext.Provider>
-    </>
-  )
+return (
+  <>
+    <Filtro />
+  </>
+)
 }
 
-export default App
+export default App;
